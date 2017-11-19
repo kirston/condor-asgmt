@@ -55,12 +55,14 @@ gulp.task('sass', function() {
         .pipe(csslint())
         .pipe(csslint.formatter())
         .pipe(concat('main.css'))
+        .pipe(gulp.dest('src/css'))
         .pipe(gulp.dest('dist/css'))
         .pipe(rename({
             suffix: '.min'
         }))
         .pipe(cleanCss())
         .pipe(sourcemaps.write())
+        .pipe(gulp.dest('src/css'))
         .pipe(gulp.dest('dist/css'))
         .pipe(browserSync.stream())
 });
